@@ -39,17 +39,16 @@ public:
 	friend void showage(date&);
 };
 
-void showage(date& d1) {
-	date d;
-	unsigned int age = d.year + 100 - d1.year;
+void showage(date d1, date d2) {
+	unsigned int age = d2.year + 100 - d1.year;
 	// Из-за неточности ввода подразумевается, что люди не живут дольше 100 лет :)
 	if (age >= 100)
 		age -= 100;
-	if (d.month < d1.month) {
+	if (d2.month < d1.month) {
 		cout << --age;
 		return;
 	}
-	if (d.day < d1.day) {
+	if (d2.day < d1.day) {
 		cout << --age;
 		return;
 	}
@@ -86,6 +85,12 @@ public:
 int main() {
 	fullDate d;
 	d.showdate();
+	newLine();
+	date birthday, today;
+	cout << "Input your birthday:";
+	birthday.getdate();
+	newLine();
+	showage(birthday, today);
 	newLine();
 	return 0;
 }
