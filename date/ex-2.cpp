@@ -36,8 +36,7 @@ public:
 		printf("%02d/%02d/%02d", month, day, year);
 	}
 	// Вывод возраста
-	void showage() {
-		date d;
+	void showage(date d) {
 		unsigned int age = d.year + 100 - year;
 		// Из-за неточности ввода подразумевается, что люди не живут дольше 100 лет :)
 		if (age >= 100)
@@ -55,11 +54,11 @@ public:
 };
 
 int main() {
-	date d;
+	date d, today;
 	cout << "Enter your birthday date:\n";
 	d.getdate();
 	cout << "Your age is:\n";
-	d.showage();
+	d.showage(today);
 	newLine();
 	return 0;
 }
